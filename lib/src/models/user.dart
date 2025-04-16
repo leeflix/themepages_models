@@ -1,3 +1,5 @@
+import 'package:themepages_models/src/models/language.dart';
+
 import 'model.dart';
 
 class User extends Model<User> {
@@ -5,6 +7,7 @@ class User extends Model<User> {
   bool isVerified;
   String? firstName;
   String? lastName;
+  Language? language;
 
   User({
     String? id,
@@ -15,6 +18,7 @@ class User extends Model<User> {
     required this.isVerified,
     required this.firstName,
     required this.lastName,
+    required this.language,
   }) : super(
           id: id,
           created: created,
@@ -28,6 +32,7 @@ class User extends Model<User> {
         "isVerified": isVerified,
         "firstName": firstName,
         "lastName": lastName,
+        "language": language?.string,
         ...super.toJson(),
       };
 
@@ -36,6 +41,7 @@ class User extends Model<User> {
         isVerified = json["isVerified"],
         firstName = json["firstName"],
         lastName = json["lastName"],
+        language = LanguageExt.fromString(json["language"]),
         super(
           id: json["id"],
           created: DateTime.parse(json["created"]),
