@@ -15,14 +15,14 @@ class Account extends Model<Account> {
   Map<String, dynamic> toJson() => {
         "handle": handle,
         "followersCount": followers,
-        "imageId": imageIds.toList(),
+        "imageIds": imageIds.toList(),
         ...super.toJson(),
       };
 
   Account.fromJson(Map<String, dynamic> json)
       : handle = json["handle"],
         followers = json["followersCount"],
-        imageIds = Set<String>.from(json["imageId"]),
+        imageIds = Set<String>.from(json["imageIds"]),
         super(
           id: json["id"],
           created: DateTime.parse(json["created"]),
