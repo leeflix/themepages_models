@@ -1,11 +1,11 @@
 import 'package:themepages_models/themepages_models.dart';
 
-class Page extends Model<Page> {
+class InstaPage extends Model<InstaPage> {
   final String handle;
   final int followers;
   final Set<String> imageIds;
 
-  Page({
+  InstaPage({
     required this.handle,
     required this.followers,
     required this.imageIds,
@@ -18,7 +18,7 @@ class Page extends Model<Page> {
         "imageId": imageIds,
       };
 
-  Page.fromJson(Map<String, dynamic> json)
+  InstaPage.fromJson(Map<String, dynamic> json)
       : handle = json["handle"],
         followers = json["followersCount"],
         imageIds = json["imageIds"];
@@ -27,5 +27,5 @@ class Page extends Model<Page> {
   String className() => "InstagramPage";
 
   @override
-  Page fromJson(Map<String, dynamic> json) => Page.fromJson(json);
+  InstaPage fromJson(Map<String, dynamic> json) => InstaPage.fromJson(json);
 }
