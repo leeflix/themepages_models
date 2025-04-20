@@ -15,13 +15,13 @@ class InstaPage extends Model<InstaPage> {
   Map<String, dynamic> toJson() => {
         "handle": handle,
         "followersCount": followers,
-        "imageId": imageIds,
+        "imageId": imageIds.toList(),
       };
 
   InstaPage.fromJson(Map<String, dynamic> json)
       : handle = json["handle"],
         followers = json["followersCount"],
-        imageIds = json["imageIds"];
+        imageIds = Set<String>.from(json["imageId"]);
 
   @override
   String className() => "InstagramPage";
