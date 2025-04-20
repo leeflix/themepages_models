@@ -20,14 +20,12 @@ abstract class Model<T extends Model<T>> {
 
   String className();
 
-  Map<String, dynamic> toJson() {
-    return {
-      "id": id,
-      "created": created.toIso8601String(),
-      "updated": updated.toIso8601String(),
-      "isArchived": isArchived,
-    };
-  }
+  Map<String, dynamic> toJson() => {
+    "id": id,
+    "created": created.toIso8601String(),
+    "updated": updated.toIso8601String(),
+    "isArchived": isArchived,
+  };
 
   T fromMongoDoc(Map<String, dynamic> doc) =>
       fromJson(removeUnderscoreFromId(doc));
